@@ -49,21 +49,6 @@ Select your mood, and the app will suggest top movies from IMDb's vast collectio
 
 ---
 
-## 📂 Folder Structure
-
-```
-├── index.html          # Main landing page
-├── style.css           # Main stylesheet
-├── script.js           # Main JavaScript file
-├── As-usual/           # Folder for 'As Usual' day experience
-├── good-day/           # Folder for 'Good' day experience
-├── bad-day/            # Folder for 'Bad' day experience
-├── romantic/           # Folder for 'Romantic' mood
-├── horror/             # Folder for 'Horror' mood
-├── sci-fi/             # Folder for 'Sci-Fi' mood
-└── img/                # Images used in the project
-```
-
 ---
 
 ## 🔗 Live Demo
