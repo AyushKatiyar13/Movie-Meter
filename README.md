@@ -1,7 +1,5 @@
 # 🎬 Movie Suggester by IMDb 🎥
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_BADGE_LINK/status)](https://movie-suggester-by-imdb.netlify.app/)
-
 **Live Demo**: [Movie Suggester](https://movie-suggester-by-imdb.netlify.app/)
 
 ## 🌟 Project Overview
