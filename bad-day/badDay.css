@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #110442;
+    margin: 0;
+    padding: 0;
+}
+.sdiv{
+    height: 70px;
+    width: 80vw;
+    margin: 50px auto 25px auto;
+    
+}
+h1 {
+    width: 1000px;
+    font-size: 50px;
+    font-family: "Bungee Spice", sans-serif;
+    text-align: center;
+    margin: 3vw auto 1.5vw auto ;
+    border: 4px solid orange;
+    border-radius: 4vw;    
+}
+.strong{
+    font-size: 30px;
+    text-align: center;
+    color: aliceblue;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.para{
+    font-size: 20px;
+    color: aliceblue;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 8%;
+}
+.boxes {
+    height: 200px;
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.box {
+    display: flex;
+    margin: 10px;
+    height: 150px;
+    width: 150px;
+    justify-content: space-between;
+    transition: 1s;
+    box-shadow: 1px 1px 16px rgba(223, 220, 220, 0.4);
+
+}
+.box img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+.box:hover {
+    transform: scale(1.3);
+    z-index: 2;
+}
+@media screen and (max-width: 768px) {  /*--> to make it responsive*/
+    .boxes{
+        padding: 20px;
+    }
+    .box{
+        width: 45%;
+    }
+}
+@media screen and (max-width: 480px) {  /*--> to make it responsive*/
+    .box{
+        width: 100%;
+    }
+}

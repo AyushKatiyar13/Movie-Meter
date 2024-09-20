@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+body{
+    background-color: #080121;
+}
+
+h1{
+    font-size: 100px;
+    font-family: "Bungee Spice", sans-serif;
+    text-align: center;
+    margin: 35px auto 15px auto;
+}
+p{
+    color: aliceblue;
+    font-size: 40px;
+    text-align: center;
+    font-family: "Lilita One", sans-serif;
+
+}
+#genre-block{
+    color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+.genre{
+    height: 80px;
+    width: 240px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 0 5px 45px 5px;
+}
+.genre:hover {
+    color: black;
+    background-color: cyan;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan;
+    transform: scale(1.1);
+    z-index: 2;
+}
+#movie-list{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movie-image{
+    max-width: 100%;
+    height: auto;
+}
+.cards{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 60px;
+    max-width: 300px;
+    box-shadow: 0.5px 0 20px rgba(255, 255, 255,0.6);
+    transition: 1s;
+}
+.cards:hover{
+    transform: scale(1.1);
+    z-index: 2;
+}
+.aLink{
+    height: auto;
+    font-size: 25px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px 0 10px 5px;
+    text-transform: capitalize;
+}
+a:hover {  /*-->hover krne pr kya effect aaiga */
+    text-decoration: underline;
+    color: aqua;
+}
+span{
+    border: 1px solid white;
+    color: black;
+    background-color: greenyellow;
+    font-size: 15px;
+    margin: 5px 0 10px 2px;
+    padding: 0 2px;
+    font-weight: bold;
+}
+.btn{
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    background: #fff;
+    border: 3px solid violet;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.btn img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
