@@ -20,65 +20,79 @@ const forum = document.querySelector(".forum");
 let inputData = ""
 let page = 1
 
-
-
 async function searchMovies() {
-    inputData = searchInput.value;
+    inputData = searchInput.value.trim();
+    
+    if (!inputData) {
+        alert("Please enter a movie name.");
+        return; 
+    }
+
     const url = `${apiUrl}/search/movie?page=1&api_key=${accessKey}&query=${inputData}`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
-        const results = data.results;
+        console.log(data);
+        const results = data.results || [];
 
-        if(page==1){ //starts from page 1
-            searchResults.innerHTML = "" //for the 1st page the inner html set to be empty
-            forum.innerHTML = "" //for the 1st page the inner html set to be empty
+        // Check if elements are found
+        console.log('searchResults:', searchResults);
+        console.log('forum:', forum);
+
+        if (page === 1) {
+            if (searchResults) searchResults.innerHTML = ""; 
+            if (forum) forum.innerHTML = ""; 
         }
-        results.map((movie) => {
-            //results.forEach((movie) => {
-                const posterPath = movie.poster_path;
-                const title = movie.title;
-                const genres = movie.genre_ids.map(genreId => getGenreName(genreId)).join(', ');
 
-                if (posterPath) {
-                    const imageWrapper = document.createElement('div') //creating a div to store the new datas
-                    imageWrapper.classList.add("cards") 
-                    const img = document.createElement('img');
-                    img.src = imgBaseUrl + posterPath;
-                    img.alt = title;
-                    img.classList.add('movie-image');
-                    const imageLink = document.createElement('a') //create anchor tag
-                    imageLink.href = `https://www.google.com/search?q=${title}&rlz=1C1ONGR_enIN1016IN1016&oq=a+bad+day&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDzSAQg1MDY5ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8`; //for href
-                    imageLink.target = "_blank" //for target
-                    imageLink.textContent = title
-                    imageLink.classList.add('aLink');
+        if (results.length === 0) {
+            if (searchResults) searchResults.innerHTML = "<p>No results found.</p>";
+            return;
+        }
 
-                    const genresEl = document.createElement('div');
-                    genresEl.textContent = `Genres: ${genres}`;
-                    genresEl.classList.add('overview');
+        results.forEach((movie) => {
+            const posterPath = movie.poster_path;
+            const title = movie.title;
+            const genres = movie.genre_ids.map(genreId => getGenreName(genreId)).join(', ');
 
-                    const voteAverage = document.createElement('span');
-                    voteAverage.textContent = 'Rating: ' + movie.vote_average;
-                    
-                    imageWrapper.appendChild(img);
-                    imageWrapper.appendChild(imageLink);
-                    imageWrapper.appendChild(genresEl);
-                    imageWrapper.appendChild(voteAverage);
-                    searchResults.appendChild(imageWrapper);
-                }
-            //})
+            if (posterPath) {
+                const imageWrapper = document.createElement('div');
+                imageWrapper.classList.add("search-result");
+
+                const img = document.createElement('img');
+                img.src = imgBaseUrl + posterPath;
+                img.alt = title;
+                img.classList.add('movie-image');
+
+                const imageLink = document.createElement('a');
+                imageLink.href = `https://www.google.com/search?q=${title}`;
+                imageLink.target = "_blank";
+                imageLink.textContent = title;
+                imageLink.classList.add('aLink');
+
+                const genresEl = document.createElement('div');
+                genresEl.textContent = `Genres: ${genres}`;
+                genresEl.classList.add('overview');
+
+                const voteAverage = document.createElement('span');
+                voteAverage.textContent = 'Rating: ' + movie.vote_average;
+
+                imageWrapper.appendChild(img);
+                imageWrapper.appendChild(imageLink);
+                imageWrapper.appendChild(genresEl);
+                imageWrapper.appendChild(voteAverage);
+                searchResults.appendChild(imageWrapper);
+            }
         });
 
-        searchInput.value = ''; //set the userInput empty after the search button is pressed
+        searchInput.value = ''; 
         page++;
-
-       
 
     } catch (error) {
         console.error('Error fetching movie data:', error);
     }
 }
+
 function getGenreName(genreId) {
 
     const genres = [
@@ -129,6 +143,7 @@ searchForm.addEventListener('submit', (event) => {
     paraMsg.style.display = "none";
     searchMovies();
 });
+
 resett.addEventListener('click', () => {
     txt.value = "";
     txtArea.value = "";
